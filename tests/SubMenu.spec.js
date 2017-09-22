@@ -93,7 +93,7 @@ describe('SubMenu', () => {
 
     it('removes self key from openKeys', () => {
       const wrapper = mount(<App show />);
-      wrapper.find('.rc-menu-submenu').first().simulate('mouseEnter');
+      wrapper.find('.rc-menu-submenu-title').first().simulate('mouseEnter');
       expect(wrapper.find('Menu').node.state.openKeys).toEqual(['s1']);
       wrapper.setProps({ show: false });
       expect(wrapper.find('Menu').node.state.openKeys).toEqual([]);
@@ -151,7 +151,7 @@ describe('SubMenu', () => {
 
     describe('up & down key', () => {
       const wrapper = mount(createMenu());
-      const titles = wrapper.find('.rc-menu-submenu');
+      const titles = wrapper.find('.rc-menu-submenu-title');
 
       titles.first().simulate('mouseEnter')
                     .simulate('keyDown', { keyCode: KeyCode.LEFT })

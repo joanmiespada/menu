@@ -52,17 +52,5 @@ describe('MenuItem', () => {
       wrapper.setProps({ show: false });
       expect(wrapper.find('Menu').node.state.selectedKeys).toEqual([]);
     });
-
-    it('clears mouse leave timer', () => {
-      const wrapper = mount(<App show />);
-      const menu = wrapper.find('Menu');
-      wrapper.find('MenuItem').simulate('mouseEnter');
-      wrapper.find('MenuItem').simulate('mouseLeave');
-      expect(menu.node.menuItemMouseLeaveFn).toBeTruthy();
-      expect(menu.node.menuItemMouseLeaveTimer).toBeTruthy();
-      wrapper.setProps({ show: false });
-      expect(menu.node.menuItemMouseLeaveFn).toBe(null);
-      expect(menu.node.menuItemMouseLeaveTimer).toBe(null);
-    });
   });
 });
